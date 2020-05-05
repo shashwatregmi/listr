@@ -30,8 +30,11 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ty9-8m-4a5">
-                                        <rect key="frame" x="0.0" y="70.5" width="106" height="30"/>
-                                        <state key="normal" title="Clear Text Field"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="151" height="30"/>
+                                        <state key="normal" title="Set Default Label Text"/>
+                                        <connections>
+                                            <action selector="setDefaultLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6GZ-LU-8Lf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -47,6 +50,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTaskField" destination="A72-EQ-enp" id="08Y-jO-XuR"/>
+                        <outlet property="taskNameLabel" destination="lK4-XK-eHM" id="Qqp-1E-Jpt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
