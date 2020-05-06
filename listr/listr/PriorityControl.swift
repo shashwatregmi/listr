@@ -11,7 +11,11 @@ import UIKit
 @IBDesignable class PriorityControl: UIStackView {
     
     private var priorityButtons = [UIButton]()
-    var priority = 0
+    var priority = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
     
     @IBInspectable var circleSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
@@ -36,7 +40,18 @@ import UIKit
     }
     
     @objc func priorityButtonTapped(button: UIButton) {
-        print("Button pressed 👍")
+        guard let index = priorityButtons.firstIndex(of: button) else {
+            fatalError("The button, \(button), is not in the priorityButtons array: \(priorityButtons)")
+        }
+        
+        // Calculate the rating of the selected button
+        let selectedPriority = index + 1
+        
+        if selectedPriority == priority {
+            priority = 0
+        } else {
+            priority = selectedPriority
+        }
     }
     
     // Private methods
@@ -68,6 +83,14 @@ import UIKit
             addArrangedSubview(button)
             
             priorityButtons.append(button)
+        }
+        updateButtonSelectionStates()
+    }
+    
+    private func updateButtonSelectionStates() {
+        for (index, button) in priorityButtons.enumerated() {
+            // If the index of a button is less than the rating, that button should be selected.
+            button.isSelected = index < priority
         }
     }
 }
