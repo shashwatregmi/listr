@@ -10,25 +10,27 @@ import XCTest
 @testable import listr
 
 class listrTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testTaskInitializationSucceeds() {
+        // Zero rating
+        let zeroPriorityTask = Task.init(name: "Zero", img: nil, priority: 0)
+        XCTAssertNotNil(zeroPriorityTask)
+         
+        // Highest positive rating
+        let maxPriorityTask = Task.init(name: "Zero", img: nil, priority: 5)
+        XCTAssertNotNil(maxPriorityTask)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testMealInitializationFails() {
+        // Negative rating
+        let negativePriorityTask = Task.init(name: "Negative", img: nil, priority: -1)
+        XCTAssertNil(negativePriorityTask)
+         
+        // Empty String
+        let emptyStringTask = Task.init(name: "", img: nil, priority: 0)
+        XCTAssertNil(emptyStringTask)
+        
+        let largePriorityTask = Task.init(name: "Large", img: nil, priority: 6)
+        XCTAssertNil(largePriorityTask)
     }
 
 }

@@ -18,7 +18,7 @@ class Task{
         self.name = name
         self.img = img
         self.priority = priority
-        if name.isEmpty || priority < 0  {
+        if name.isEmpty || priority > 5 || priority < 0 {
             return nil
         }
     }
