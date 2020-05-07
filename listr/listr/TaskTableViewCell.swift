@@ -10,6 +10,13 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
 
+    // Properties
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var priorityControl: PriorityControl!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
