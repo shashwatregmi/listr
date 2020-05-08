@@ -72,8 +72,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u5M-pm-3TM">
-                                <rect key="frame" x="10" y="76" width="394" height="414"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u5M-pm-3TM">
+                                <rect key="frame" x="10" y="76" width="394" height="420"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Task Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A72-EQ-enp">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -90,8 +90,8 @@
                                             <outletCollection property="gestureRecognizers" destination="Epv-rQ-OfK" appends="YES" id="lLG-GV-1dn"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-uf-FO1" customClass="PriorityControl" customModule="listr" customModuleProvider="target">
-                                        <rect key="frame" x="71" y="370" width="252" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-uf-FO1" customClass="PriorityControl" customModule="listr" customModuleProvider="target">
+                                        <rect key="frame" x="71" y="370" width="252" height="50"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -126,7 +126,7 @@
                 <exit id="zns-92-ccb" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Epv-rQ-OfK">
                     <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="3cN-WJ-rj1"/>
+                        <action selector="selectImage:" destination="BYZ-38-t0r" id="BQP-ZF-Mpt"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
