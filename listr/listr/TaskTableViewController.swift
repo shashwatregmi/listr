@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TaskTableViewController: UITableViewController {
     
     var tasks = [Task]()
@@ -89,6 +90,16 @@ class TaskTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? TaskViewController, let task = sourceViewController.task {
+            // Add a new meal.
+            //location of index in table
+            let newIndexPath = IndexPath(row: tasks.count, section: 0)
+            tasks.append(task)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
 
     //private
     
@@ -110,6 +121,7 @@ class TaskTableViewController: UITableViewController {
         }
         
         tasks += [task1, task2, task3]
-
     }
+    
+    
 }

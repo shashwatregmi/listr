@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -15,6 +16,10 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var priorityControl: PriorityControl!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+        
+    var  task:Task?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,24 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
+    // Navigation
+    
+    // configures a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTaskField.text ?? ""
+        let photo = photoImageView.image
+        let priority = priorityControl.priority
+        
+        task = Task(name: name, img: photo, priority: priority) 
+    }
+
     // Event here:
 
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {

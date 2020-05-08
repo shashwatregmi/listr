@@ -109,15 +109,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Task" id="Azu-mT-dKs">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pHe-D6-clI"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oDu-YW-gAe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oDu-YW-gAe">
+                            <connections>
+                                <segue destination="zns-92-ccb" kind="unwind" unwindAction="unwindToMealListWithSender:" id="cdq-g9-rkx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTaskField" destination="A72-EQ-enp" id="08Y-jO-XuR"/>
                         <outlet property="photoImageView" destination="VEY-ej-6mt" id="491-iA-SYy"/>
                         <outlet property="priorityControl" destination="y9L-uf-FO1" id="bnG-rO-I25"/>
+                        <outlet property="saveButton" destination="oDu-YW-gAe" id="JEV-K4-MDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="zns-92-ccb" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Epv-rQ-OfK">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="3cN-WJ-rj1"/>
