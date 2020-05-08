@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TaskViewController.swift
 //  listr
 //
 //  Created by Regmi on 2020-05-04.
@@ -8,12 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameTaskField: UITextField!
-    
-    @IBOutlet weak var taskNameLabel: UILabel!
-    
+        
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var priorityControl: PriorityControl!
@@ -30,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        taskNameLabel.text = textField.text
+
     }
     //MARK: UIImagePickerControllerDelegate
 
