@@ -53,23 +53,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Tasks" id="TsL-Ij-1Gz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hIy-YH-jA1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hIy-YH-jA1">
+                            <connections>
+                                <segue destination="Cq2-fJ-i5X" kind="presentation" identifier="AddTask" id="IUh-t6-Cwm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yi-CO-08k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="347.82608695652175" y="116.51785714285714"/>
         </scene>
-        <!--Task View Controller-->
+        <!--New Task-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TaskViewController" customModule="listr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u5M-pm-3TM">
-                                <rect key="frame" x="10" y="64" width="394" height="414"/>
+                                <rect key="frame" x="10" y="76" width="394" height="414"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Task Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A72-EQ-enp">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -103,6 +107,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Task" id="Azu-mT-dKs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pHe-D6-clI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oDu-YW-gAe"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTaskField" destination="A72-EQ-enp" id="08Y-jO-XuR"/>
                         <outlet property="photoImageView" destination="VEY-ej-6mt" id="491-iA-SYy"/>
@@ -116,7 +124,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="116.51785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nvA-Lc-dFb">
@@ -135,6 +143,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FC-FY-a4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-562.31884057971024" y="116.51785714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hvp-sY-k3c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cq2-fJ-i5X" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SAX-7h-qsT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="33Z-jS-SuU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o7F-lW-OAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="116.51785714285714"/>
         </scene>
     </scenes>
     <resources>
