@@ -63,6 +63,9 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     // Navigation
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     // configures a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
