@@ -54,6 +54,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Tasks" id="TsL-Ij-1Gz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hIy-YH-jA1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="Cq2-fJ-i5X" kind="presentation" identifier="AddTask" id="IUh-t6-Cwm"/>
                             </connections>
@@ -109,11 +110,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Task" id="Azu-mT-dKs">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pHe-D6-clI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="htB-1s-DLl"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oDu-YW-gAe">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="oDu-YW-gAe">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="zns-92-ccb" kind="unwind" unwindAction="unwindToMealListWithSender:" id="cdq-g9-rkx"/>
                             </connections>
@@ -144,6 +147,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kq2-Oc-Mea">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99843901400000001" green="0.34291309120000002" blue="0.33975431319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -162,6 +169,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SAX-7h-qsT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99843901400000001" green="0.34291309120000002" blue="0.33975431319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
