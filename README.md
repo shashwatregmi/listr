@@ -4,8 +4,7 @@
 <img src="screenshots/logo.png" width="160" height="160">
 </p>
 
-[IN DEVELOPMENT] To-do list iOS application with image and task priority features.
-
+[In Development] To-do list iOS application with image and task priority features. listr allows users to capture and track tasks by urgency and photos. In process of adding new features such as task deadlines and sharing functionality.
 
 ## App Screenshots:
 
