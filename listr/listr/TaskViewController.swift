@@ -24,7 +24,9 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTaskField.delegate = self
+        updateSaveButtonState()
     }
+    
     // UI Text Field Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
@@ -32,14 +34,21 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
+    }
+
+    
     //MARK: UIImagePickerControllerDelegate
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -75,6 +84,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBAction func selectImage(_ sender: UITapGestureRecognizer) {
 
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
         }))
@@ -115,5 +125,11 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTaskField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
 }
