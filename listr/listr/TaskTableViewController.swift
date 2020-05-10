@@ -90,7 +90,7 @@ class TaskTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
             case "AddTask":
-                os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+                os_log("Adding a new task.", log: OSLog.default, type: .debug)
             
             case "ShowDetail":
                 guard let taskDetailViewController = segue.destination as? TaskViewController else {
@@ -113,13 +113,18 @@ class TaskTableViewController: UITableViewController {
     }
     
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToTaskList(sender: UIStoryboardSegue) {
+        
         if let sourceViewController = sender.source as? TaskViewController, let task = sourceViewController.task {
-            // Add a new meal.
-            //location of index in table
-            let newIndexPath = IndexPath(row: tasks.count, section: 0)
-            tasks.append(task)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                tasks[selectedIndexPath.row] = task
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new task.
+                let newIndexPath = IndexPath(row: tasks.count, section: 0)
+                tasks.append(task)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
 

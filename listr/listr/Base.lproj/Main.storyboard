@@ -119,7 +119,7 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="oDu-YW-gAe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="zns-92-ccb" kind="unwind" unwindAction="unwindToMealListWithSender:" id="cdq-g9-rkx"/>
+                                <segue destination="zns-92-ccb" kind="unwind" unwindAction="unwindToTaskListWithSender:" id="cdq-g9-rkx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

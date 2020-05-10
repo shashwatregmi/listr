@@ -24,6 +24,12 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTaskField.delegate = self
+        if let task = task {
+            navigationItem.title = task.name
+            nameTaskField.text   = task.name
+            photoImageView.image = task.img
+            priorityControl.priority = task.priority
+        }
         updateSaveButtonState()
     }
     
