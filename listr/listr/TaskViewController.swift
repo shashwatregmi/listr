@@ -54,7 +54,14 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     //MARK: UIImagePickerControllerDelegate
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        let isPresentingInAddTaskMode = presentingViewController is UINavigationController
+        if isPresentingInAddTaskMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
         dismiss(animated: true, completion: nil)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
