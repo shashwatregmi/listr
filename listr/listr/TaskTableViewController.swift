@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 
 class TaskTableViewController: UITableViewController {
@@ -81,15 +82,36 @@ class TaskTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "AddTask":
+                os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            
+            case "ShowDetail":
+                guard let taskDetailViewController = segue.destination as? TaskViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+             
+                guard let selectedTaskCell = sender as? TaskTableViewCell else {
+                    fatalError("Unexpected sender: \(String(describing: sender))")
+                }
+             
+                guard let indexPath = tableView.indexPath(for: selectedTaskCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+             
+                let selectedTask = tasks[indexPath.row]
+                taskDetailViewController.task = selectedTask
+            default:
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? TaskViewController, let task = sourceViewController.task {
