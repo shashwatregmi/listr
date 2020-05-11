@@ -17,6 +17,7 @@ class TaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         loadSampleTasks()
     }
 
@@ -68,12 +69,14 @@ class TaskTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let rowToMove = tasks[fromIndexPath.row]
+        tasks.remove(at: fromIndexPath.row)
+        tasks.insert(rowToMove, at: to.row)
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.

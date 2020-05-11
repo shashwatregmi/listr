@@ -34,8 +34,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dFN-An-eH2" customClass="PriorityControl" customModule="listr" customModuleProvider="target">
-                                            <rect key="frame" x="98" y="35" width="252" height="44"/>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFN-An-eH2" customClass="PriorityControl" customModule="listr" customModuleProvider="target">
+                                            <rect key="frame" x="98" y="39" width="200" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
                                     </subviews>
@@ -64,7 +64,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yi-CO-08k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="12"/>
+            <point key="canvasLocation" x="286.95652173913044" y="11.383928571428571"/>
         </scene>
         <!--New Task-->
         <scene sceneID="tne-QT-ifu">
