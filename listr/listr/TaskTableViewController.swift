@@ -18,7 +18,12 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        loadSampleTasks()
+        if loadTasks() != nil{
+            tasks = loadTasks()! 
+        } else { // load some sample tasks if nothing saved -- probably means first launch of app..
+            loadSampleTasks()
+        }
+        
     }
 
     // MARK: - Table view data source
