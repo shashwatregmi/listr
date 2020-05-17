@@ -15,6 +15,11 @@ class Task: NSObject, NSCoding{
     var priority:Int
     var img:UIImage? // Makes this a optional?
     
+    //MARK: Archiving Paths
+     
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("tasks")
+    
     struct propertyKey{
         static let name = "name"
         static let priority = "priority"

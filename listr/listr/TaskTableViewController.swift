@@ -62,6 +62,7 @@ class TaskTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             tasks.remove(at: indexPath.row)
+            saveTasks()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -129,6 +130,7 @@ class TaskTableViewController: UITableViewController {
                 tasks.append(task)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            saveTasks()
         }
     }
 
@@ -154,5 +156,13 @@ class TaskTableViewController: UITableViewController {
         tasks += [task1, task2, task3]
     }
     
+    private func saveTasks() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(tasks, toFile: Task.ArchiveURL.path)
+    }
+    
+    private func loadTasks() -> [Task]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Task.ArchiveURL.path) as? [Task]
+    }
     
 }
+
